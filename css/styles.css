@@ -59,6 +59,8 @@ ul {
   justify-content: space-between;
   border-bottom: 1px solid #e7e9fc;
   height: 72px;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -99,10 +101,23 @@ ul {
   letter-spacing: 0.02em;
   color: var(--title-color);
   padding: 24px 0;
+}
+.current {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  color: #404bbf;
 }
 
-.link-item-main {
+.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  border-radius: 2px;
+  left: 0;
+  bottom: 8px;
+  bottom: -1px;
+  background-color: #404bbf;
 }
 
 .link-item-main :hover,
@@ -138,21 +153,23 @@ ul {
 }
 
 .button-title-service {
-}
-
-.hero-container {
-  background-color: var(--title-color);
-  padding: 188px 0;
-  height: 600px;
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
     url(../images/people-office.jpg);
+  max-width: 1440px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-size: 1440px;
+  background-color: var(--title-color);
+  padding: 188px 0;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-container {
 }
 
 .main-title {
@@ -185,6 +202,7 @@ ul {
   border-radius: 4px;
   display: block;
   min-width: 169px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-order:hover,
@@ -291,16 +309,15 @@ ul {
 }
 
 .social-icon-link {
-  background: #4d5ae5;
+  background-color: #4d5ae5;
   padding: 12px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #4d5ae5;
   width: 100%;
   height: 100%;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon-link:hover,
@@ -311,7 +328,7 @@ ul {
 .icon-main-list {
   display: flex;
   gap: 24px;
-  margin-top: 8px;
+  justify-content: center;
 }
 
 .list-team {
@@ -319,13 +336,19 @@ ul {
   gap: 24px;
 }
 .team-container {
-  padding: 32px 16px;
+  padding: 32px 0;
+}
+
+.icon-main-social {
+  fill: #f4f4fd;
 }
 
 .info-team {
   background-color: #ffffff;
   border-radius: 0px 0px 4px 4px;
   width: calc((100% - 72px) / 4);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .our-team {
@@ -373,10 +396,8 @@ ul {
 }
 
 .main-icon-group {
-  display: flex;
   gap: 24px;
-  justify-content: center;
-  align-items: center;
+  display: flex;
 }
 
 .sectiom-customers {
@@ -385,23 +406,24 @@ ul {
 }
 
 .list-icon-customers {
-  width: calc((100% - 5 * 24px) / 6);
+  width: calc((100% - 120px) / 6);
   height: 88px;
-  border-radius: 4px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon-customers {
+  border: 1px solid #8e8f99;
+  color: #8e8f99;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
   width: 100%;
-  color: #8e8f99;
-  border: 1px solid #8e8f99;
+  height: 100%;
+  border-radius: 4px;
+  align-items: center;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.brand-company {
+.link-icon-customers {
   fill: currentColor;
 }
 
@@ -449,7 +471,7 @@ ul {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  padding-bottom: 16px;
+
   margin-bottom: 16px;
   color: #ffffff;
 }
@@ -472,21 +494,23 @@ ul {
 }
 
 .footer-link {
-  background: #4d5ae5;
-  border: 1px solid #4d5ae5;
+  background-color: #4d5ae5;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   width: 100%;
   height: 100%;
-  padding: 8px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link:hover,
 .footer-link:focus {
-  background-color: #404bbf;
+  background-color: #31d0aa;
+}
+
+.footer-icon-main {
+  fill: #f4f4fd;
 }
 
 /** --------------next-html-portfolio--------------- */
@@ -515,21 +539,29 @@ ul {
   padding: 12px 24px;
   border: 1px solid #e7e9fc;
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-web-portfolio:hover {
   color: #ffffff;
   background-color: #404bbf;
   border: 1px solid transparent;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 .button-web-portfolio:active,
 .button-web-portfolio:focus {
   color: #ffffff;
   background-color: #404bbf;
   border: 1px solid transparent;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+
+/** --------------next-html-portfolio--------------- */
 
 .ul-portfolio {
   display: flex;
@@ -555,7 +587,6 @@ ul {
 
 .li-portfolio {
   width: calc((100% - 48px) / 3);
-  background: #ffffff;
 }
 
 .info-portfolio {
